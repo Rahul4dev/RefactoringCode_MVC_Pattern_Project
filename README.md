@@ -13,3 +13,5 @@ Project based on blogging and commenting on author's work, it applies maintainab
   - According to GFG, refactoring helps when you might have written some duplicate code without looking at the existing code or you may have written some longer methods/functions, large classes, too many parameters, non-intuitive variable names, code placement, etc. 
   
   - Refctoring reduces the technical cost and makes the code more efficient and maintainable. If you don’t pay attention to the code refactoring process earlier, you will pay for errors in your code later. So don’t ignore cleaning up the code. 
+
+For More: https://www.geeksforgeeks.org/7-code-refactoring-techniques-in-software-engineering/
