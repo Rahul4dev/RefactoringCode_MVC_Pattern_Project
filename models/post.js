@@ -12,8 +12,30 @@ class Post {
       this.id = new ObjectId(id); // transform id from string to objectId
     } // may be undefined if create new post
   }
+  // need to fetch all the data from the posts table in the database.
+  // static methods are used to construct a blueprint and also used to grouping the functionalities together.
+  // here we used that property of static method and fetch all the data from database as we do not have this method in this post model.
+  static async fetchAll() {
+    const posts = await db.getDb().collection("posts").find().toArray();
+    return posts;
+  }
+
+  // similarly for fetching single post
+  async fetch() {
+    if (!this.id) {
+      return;
+    }
+
+    const postDocument = await db
+      .getDb()
+      .collection("posts")
+      .findOne({ _id: this.id });
+    this.title = postDocument.title;
+    this.content = postDocument.content;
+  }
 
   async save() {
+    // to save the new post and updated one
     let result;
 
     if (this.id) {

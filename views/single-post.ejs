@@ -5,7 +5,8 @@
   <%- include('includes/header.ejs') %>
   <main>
     <%- include('includes/post-form', { 
-      submitUrl: '/posts/' + post._id + '/edit', 
+      // now since we update the data the post._id will not receive data, but post.id as given in the post model route.
+      submitUrl: '/posts/' + post.id + '/edit', 
       hasError: inputData.hasError, 
       errorMessage: inputData.message, 
       title: inputData.title, 
