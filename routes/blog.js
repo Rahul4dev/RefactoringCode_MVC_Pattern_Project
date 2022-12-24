@@ -6,7 +6,7 @@ const router = express.Router();
 
 router.get("/", blogControllers.getHome);
 
-router.get("/admin", blogControllers.getPosts);
+router.get("/admin", blogControllers.getAdmin);
 
 router.post("/posts", blogControllers.createPost);
 
