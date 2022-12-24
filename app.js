@@ -9,7 +9,9 @@ const sessionConfig = require("./config/session");
 const db = require("./data/database");
 const blogRoutes = require("./routes/blog");
 const authRoutes = require("./routes/auth");
-const authMiddleware = require("./custom-middleware/auth-mid");
+
+const authMiddleware = require("./custom-middleware/auth-middleware");
+const csrfTokenMiddleware = require("./custom-middleware/csrfToken-middleware");
 
 const mongodbSessionStore = sessionConfig.createSessionStore(session);
 
@@ -25,6 +27,7 @@ app.use(session(sessionConfig.createSessionConfig(mongodbSessionStore)));
 app.use(csrf());
 
 app.use(authMiddleware);
+app.use(csrfTokenMiddleware); // will populate csrf token through res.locals
 
 // register the routes here, order or placement will depend on the routes used.
 app.use(blogRoutes);
