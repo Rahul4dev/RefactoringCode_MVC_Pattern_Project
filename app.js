@@ -30,8 +30,8 @@ app.use(authMiddleware);
 app.use(csrfTokenMiddleware); // will populate csrf token through res.locals
 
 // register the routes here, order or placement will depend on the routes used.
+app.use(authRoutes); // we have used route protector in blog routes so auth routes which contain login page etc, should come first in order to be accessible to all visitors.
 app.use(blogRoutes);
-app.use(authRoutes);
 
 app.use(function (error, req, res, next) {
   res.render("500");
